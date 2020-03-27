@@ -3,11 +3,11 @@
 {% block content %}
 <script type="text/javaScript" src="{% static 'js/home.js' %}" ></script>
 <h1 class="title">Tajniacy </h1>
-<ul>
-							{% for game in games_list%}
-							<li>{{game.id}} : {{game.status}}<a href="{{game.id}}"><span>Graj</span></a></li>
-							{% endfor %}
-						</ul>
+					<ul>
+					{% for game in games_list%}
+					<li>{{game.id}} : {{game.status}}<a href="{{game.id}}"><span>Graj</span></a></li>
+					{% endfor %}
+					</ul>
 <button onclick="marco()" class="start">New game</button>
 {% endblock %}
 
