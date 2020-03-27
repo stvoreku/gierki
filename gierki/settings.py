@@ -124,9 +124,6 @@ USE_TZ = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
