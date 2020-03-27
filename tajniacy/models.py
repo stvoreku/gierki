@@ -24,7 +24,7 @@ class Team(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
 class Profile(models.Model):
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, null=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 @receiver(post_save, sender=User)
