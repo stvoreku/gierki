@@ -3,8 +3,13 @@
 {% block content %}
 
 <h1 class="title">Tajniacy </h1>
-
+<ul>
+							{% for game in game_list%}
+							<li>{{game.id}} : {{game.status}}<a href="{{game.id}}"><span>Graj</span></a></li>
+							{% endfor %}
+						</ul>
 <button class="start">New game</button>
 {% endblock %}
+
 
 
