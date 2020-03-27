@@ -1,1 +1,1 @@
-web: gunicorn BusSite.wsgi --log-file -
+web: gunicorn gierki.wsgi --log-file -
