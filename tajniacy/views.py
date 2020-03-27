@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from .models import Game
+from django.http import JsonResponse
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -13,6 +14,10 @@ class HomeView(TemplateView):
         context['games_list'] = Game.objects.all()
 
         return context
+
+    def post(self, request, *args, **kwargs):
+        if request.is_ajax():
+            return JsonResponse({'gameid':'pong'})
 
 class GameView(TemplateView):
     template_name = 'game.html'
