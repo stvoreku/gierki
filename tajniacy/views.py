@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
 from .models import Game, Team
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 # Create your views here.
 
@@ -32,6 +33,9 @@ class GameView(TemplateView):
         game = Game.objects.get(pk=int(self.kwargs['pk']))
         context = super(GameView, self).get_context_data(**kwargs)
         context['game'] = game
-        context['teams'] = Team.objects.filter(game=game)
+        teams = Team.objects.filter(game=game)
+        context['team1'] = teams[0]
+        context['team2'] = teams[1]
+        context['users'] = User.objects.all()
         return context
 
