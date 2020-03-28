@@ -30,7 +30,7 @@ class HomeView(TemplateView):
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='None')
                 newCard.save()
-            return JsonResponse({'gamelink':'ohanagierki.herokuapp.com/{}/'.format(game.id)})
+            return JsonResponse({'gamelink':'{}/'.format(game.id)})
 
 class GameView(TemplateView):
     template_name = 'game.html'
