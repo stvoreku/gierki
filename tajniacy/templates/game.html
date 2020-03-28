@@ -4,19 +4,22 @@
 
 <h1 class="title">Gra numer {{game.id}}</h1>
 
-{{team1}}
+{{team1.name}}
 <ul id="team1">
 </ul>
 <select id="team1select" name="users">
 {% for user in users%}
-<option value="{{user.name}}">{{user.name}}</option>
+
+<option value="{{user.username}}">{{user.name}}</option>
+  </select>
 {% endfor %}
 </select>
-{{team2}}
+{{team2.name}}
 <ul id="team2">
 </ul>
 <select id="team2select" name="users">
 {% for user in users%}
+</select>
 <option value="{{user.name}}">{{user.name}}</option>
 {% endfor %}
 
