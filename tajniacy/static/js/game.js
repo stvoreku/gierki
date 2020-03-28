@@ -61,7 +61,7 @@ $(function() {
     console.log('update')
         $.ajax({
     url : "/game", // the endpoint
-    type : "POST", // http method
+    type : "GET", // http method
     data : {
 
     }, // data sent with the post request
