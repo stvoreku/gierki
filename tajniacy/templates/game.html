@@ -3,9 +3,8 @@
 {% block content %}
 
 <h1 class="title">Gra numer {{game.id}}</h1>
-{% for team in teams%}
-					<li>{{team.id}} : {{team.name}}</li>
-{% endfor %}
+{{teams[0].name}}
+{{teams[1].name}}
 <table>
   <tr>
     <td></td>
