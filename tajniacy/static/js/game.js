@@ -77,4 +77,4 @@ $(function() {
     });
 }
 
-window.setInterval(game_update, 200)
+window.setInterval(game_update, 1000)
