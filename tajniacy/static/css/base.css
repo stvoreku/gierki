@@ -36,3 +36,13 @@ body {
 .cardtable {
 	border: solid black;
 }
+
+.team1class {
+	float: left;
+	text-align: left;
+}
+
+.team2class {
+	float: right;
+	text-align: right;
+}
