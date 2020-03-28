@@ -34,7 +34,4 @@ class GameView(TemplateView):
         context['game'] = game
         context['teams'] = Team.objects.filter(game=game)
         return context
-    def get(self, request, *args, **kwargs):
-        if request.is_ajax():
 
-            return JsonResponse({'':'ohanagierki.herokuapp.com/{}/'.format(game.id)})
