@@ -65,7 +65,7 @@ $.ajax({
 
     success : function(json) {
 	    console.log('game created!')
-        window.location.replace(str(json['gamelink']))
+        window.location.replace(json['gamelink'])
         },
 
         // handle a non-successful response
