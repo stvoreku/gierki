@@ -39,8 +39,8 @@ class GameView(TemplateView):
         game = Game.objects.get(pk=int(self.kwargs['pk']))
         context = super(GameView, self).get_context_data(**kwargs)
         context['game'] = game
-        context['team1'] = Team.objects.filter(game=game, name='red')
-        context['team2'] = Team.objects.filter(game=game, name='blue')
+        context['team1'] = Team.objects.get(game=game, name='red')
+        context['team2'] = Team.objects.get(game=game, name='blue')
         context['users'] = User.objects.all()
         context['cards'] = Card.objects.filter(game=game)
         return context
