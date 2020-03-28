@@ -22,8 +22,8 @@ class Card(models.Model):
 class Team(models.Model):
     name = models.CharField(max_length=30)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
-    user = models.ManyToManyField(User)
-
+    player = models.ManyToManyField(User, related_name="players")
+    leader = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
 
 
