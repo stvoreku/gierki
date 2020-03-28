@@ -10,18 +10,20 @@
 <select id="team1select" name="users">
 {% for u in users%}
 
-<option value="{{u.get_username}}">{{u.name}}</option>
-  </select>
-{% endfor %}
+<option value="{{u.get_username}}">{{u.get_username}}</option>
+
+  {% endfor %}
 </select>
 {{team2.name}}
 <ul id="team2">
 </ul>
 <select id="team2select" name="users">
-{% for user in users%}
+{% for u in users%}
+
+<option value="{{u.get_username}}">{{u.get_username}}</option>
+
+  {% endfor %}
 </select>
-<option value="{{user.name}}">{{user.name}}</option>
-{% endfor %}
 
 
 
