@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
-from .models import Game, Team
+from .models import Game, Team, Word, Card
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+import random
 # Create your views here.
 
 class HomeView(TemplateView):
@@ -24,6 +25,10 @@ class HomeView(TemplateView):
             team_2 = Team(name = 'blue', game = game)
             team_1.save()
             team_2.save()
+            items = Word.objects.all()
+            random_words = random.sample(items, 2)
+            for a in random_words:
+                newCard = Card(word = a, game = game, status='None')
             return JsonResponse({'gamelink':'ohanagierki.herokuapp.com/{}/'.format(game.id)})
 
 class GameView(TemplateView):
