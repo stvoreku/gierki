@@ -5,6 +5,5 @@ from .models import *
 
 admin.site.register(Game)
 admin.site.register(Team)
-admin.site.register(Profile)
 admin.site.register(Card)
 admin.site.register(Word)
