@@ -27,7 +27,7 @@ class HomeView(TemplateView):
             team_2.save()
             random_index = random.sample(list(Word.objects.values_list('id', flat=True)), 2)
             for a in random_index:
-                word = Word.objects.filter(pk=int(a))
+                word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='None')
             return JsonResponse({'gamelink':'ohanagierki.herokuapp.com/{}/'.format(game.id)})
 
