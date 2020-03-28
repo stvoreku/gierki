@@ -79,8 +79,25 @@ function game_update() {
 
 function add_player(selector) {
     console.log($(selector).val())
+            $.ajax({
+    url : "/game", // the endpoint
+    type : "GET", // http method
+    data : {
+    'add_player':$(selector).val(), 'team':selector,
+    }, // data sent with the post request
 
+    success : function(json) {
+	    console.log(json)
+        },
 
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+}
+function add_leader(selector) {
+    console.log($(selector).val())
 }
 
 window.setInterval(game_update, 1000)

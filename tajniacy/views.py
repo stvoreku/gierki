@@ -38,6 +38,12 @@ class GameView(TemplateView):
         context['team2'] = teams[1]
         context['users'] = User.objects.all()
         return context
+    def post(self, request, *args, **kwargs):
+        if request.is_ajax():
+            if 'add_player' in request.POST:
+                game = Game.objects.get(pk=int(self.kwargs['pk']))
+                return JsonResponse({'ping': 'pong'})
+
 class GameUpdate(View):
 
     def get(self, request, *args, **kwargs):
