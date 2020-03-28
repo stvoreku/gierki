@@ -78,10 +78,10 @@ function game_update() {
 }
 
 function add_player(selector, team) {
-    console.log($(selector).val())
+    console.log(team)
     $.ajax({
-    url : "/game", // the endpoint
-    type : "GET", // http method
+    url : "", // the endpoint
+    type : "POST", // http method
     data : {
     'add_player':$(selector).val(), 'team':team,
     }, // data sent with the post request
@@ -98,6 +98,22 @@ function add_player(selector, team) {
 }
 function add_leader(selector, team){
     console.log($(selector).val())
+        $.ajax({
+    url : "", // the endpoint
+    type : "POST", // http method
+    data : {
+    'add_leader':$(selector).val(), 'team':team,
+    }, // data sent with the post request
+
+    success : function(json) {
+	    console.log(json)
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
 }
 
 window.setInterval(game_update, 1000)
