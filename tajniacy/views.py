@@ -17,7 +17,9 @@ class HomeView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         if request.is_ajax():
-            return JsonResponse({'gameid':'pong'})
+            game = Game(status='active')
+            game.save()
+            return JsonResponse({'gameid':str(game.id)})
 
 class GameView(TemplateView):
     template_name = 'game.html'
