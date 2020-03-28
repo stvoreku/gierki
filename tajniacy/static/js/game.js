@@ -116,4 +116,23 @@ function add_leader(selector, team){
     });
 }
 
+function start_game(){
+            $.ajax({
+    url : "", // the endpoint
+    type : "POST", // http method
+    data : {
+    'game_status':'active'
+    }, // data sent with the post request
+
+    success : function(json) {
+	    console.log(json)
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+}
+
 window.setInterval(game_update, 1000)
