@@ -57,7 +57,7 @@ $(function() {
 });
 
 
-    function game_update() {
+function game_update() {
     console.log('update')
         $.ajax({
     url : "/game", // the endpoint
@@ -75,6 +75,12 @@ $(function() {
             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         }
     });
+}
+
+function add_player(selector) {
+    console.log($(selector).val())
+
+
 }
 
 window.setInterval(game_update, 1000)
