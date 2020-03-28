@@ -29,6 +29,7 @@ class HomeView(TemplateView):
             for a in random_index:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='None')
+                newCard.save()
             return JsonResponse({'gamelink':'ohanagierki.herokuapp.com/{}/'.format(game.id)})
 
 class GameView(TemplateView):
@@ -67,4 +68,7 @@ class GameUpdate(View):
 
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
-            return JsonResponse({'ping': 'pong'})
+            if 'game_number' in request.POST:
+                gameid = request.post.get('game_number')
+                Cards = Card.objects.filter(game = Game.objects.get(pk=int(gameid)))
+            return JsonResponse({'cards': Cards})
