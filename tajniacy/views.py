@@ -27,3 +27,10 @@ class HomeView(TemplateView):
 
 class GameView(TemplateView):
     template_name = 'game.html'
+
+    def get_context_data(self, **kwargs):
+        game = Game.objects.get(pk=int(self.kwargs['pk']))
+        context = super(GameView, self).get_context_data(**kwargs)
+        context['game'] = game
+        context['teams'] = Team.objects.filter(game=game)
+        return context

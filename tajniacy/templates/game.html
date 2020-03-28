@@ -2,9 +2,12 @@
 {% load static %}
 {% block content %}
 
+<h1 class="title">Gra numer {{game.id}}</h1>
+{% for team in teams%}
+					<li>{{team.id}} : {{team.name}}</li>
 <table>
   <tr>
-    <td>Karta numero uno</td>
+    <td></td>
   </tr>
 </table>
 
