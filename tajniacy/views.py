@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, View
-from .models import Game
+from .models import Game, Team
 from django.http import JsonResponse
 # Create your views here.
 
@@ -17,8 +17,12 @@ class HomeView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         if request.is_ajax():
-            game = Game(status='active')
+            game = Game(status='new')
             game.save()
+            team_1 = Team(name = 'red', game = game)
+            team_2 = Team(name = 'blue', game = game)
+            team_1.save()
+            team_2.save()
             return JsonResponse({'gameid':str(game.id)})
 
 class GameView(TemplateView):
