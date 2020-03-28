@@ -95,6 +95,8 @@ function add_player(selector, team) {
             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         }
     });
+
+    location.reload();
 }
 function add_leader(selector, team){
     console.log($(selector).val())
@@ -114,6 +116,8 @@ function add_leader(selector, team){
             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         }
     });
+
+    location.reload();
 }
 
 function start_game(){
@@ -133,6 +137,8 @@ function start_game(){
             console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
         }
     });
+
+    location.reload();
 }
 
 window.setInterval(game_update, 1000)
