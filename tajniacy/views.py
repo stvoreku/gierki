@@ -23,7 +23,7 @@ class HomeView(TemplateView):
             team_2 = Team(name = 'blue', game = game)
             team_1.save()
             team_2.save()
-            return JsonResponse({'gameid':str(game.id)})
+            return JsonResponse({'gamelink':'ohanagierki.herokuapp.com/{}/'.format(game.id)})
 
 class GameView(TemplateView):
     template_name = 'game.html'
