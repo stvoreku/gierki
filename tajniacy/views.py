@@ -70,5 +70,5 @@ class GameUpdate(View):
         if request.is_ajax():
             if 'game_number' in request.POST:
                 gameid = request.post.get('game_number')
-                Cards = Card.objects.filter(game = Game.objects.get(pk=int(gameid)))
-                return JsonResponse({'cards': 'aaa'})
+                #Cards = Card.objects.filter(game = Game.objects.get(pk=int(gameid)))
+                return JsonResponse({'cards': gameid})
