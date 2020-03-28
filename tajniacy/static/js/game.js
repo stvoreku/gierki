@@ -99,7 +99,7 @@ function add_player(selector, team) {
     //location.reload();
 }
 function add_leader(selector, team){
-    console.log($(selector).val())
+    console.log(team)
         $.ajax({
     url : "", // the endpoint
     type : "POST", // http method
