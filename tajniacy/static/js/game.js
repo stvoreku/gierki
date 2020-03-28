@@ -77,13 +77,13 @@ function game_update() {
     });
 }
 
-function add_player(selector) {
+function add_player(selector, team) {
     console.log($(selector).val())
-            $.ajax({
+    $.ajax({
     url : "/game", // the endpoint
     type : "GET", // http method
     data : {
-    'add_player':$(selector).val(), 'team':selector,
+    'add_player':$(selector).val(), 'team':team,
     }, // data sent with the post request
 
     success : function(json) {
@@ -96,7 +96,7 @@ function add_player(selector) {
         }
     });
 }
-function add_leader(selector) {
+function add_leader(selector, team){
     console.log($(selector).val())
 }
 
