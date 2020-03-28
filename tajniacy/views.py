@@ -42,6 +42,7 @@ class GameView(TemplateView):
         context['team1'] = teams[0]
         context['team2'] = teams[1]
         context['users'] = User.objects.all()
+        context['cards'] = Card.filter(game=game)
         return context
     def post(self, request, *args, **kwargs):
         if request.is_ajax():

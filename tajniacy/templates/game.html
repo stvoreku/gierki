@@ -46,7 +46,9 @@
 
 
 <button onclick="start_game()" class="start"> START </button>
-
+{% for c in cards%}
+{{card.id}}{{card.word.word}}
+{%endfor%}
 <table class="cardtable">
   <tr>
     <td></td>
