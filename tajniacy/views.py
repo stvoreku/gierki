@@ -42,7 +42,7 @@ class GameView(TemplateView):
         if request.is_ajax():
             if 'add_player' in request.POST:
                 game = Game.objects.get(pk=int(self.kwargs['pk']))
-                return JsonResponse({'ping': 'pong'})
+                return JsonResponse({'ping': int(self.kwargs['pk'])})
 
 class GameUpdate(View):
 
