@@ -44,13 +44,13 @@ class GameView(TemplateView):
                 team = request.POST.get('team')
                 player = request.POST.get('add_player')
                 team = Team.objects.get(pk=int(team))
-                team.player.add(User.get(username=player))
+                team.player.add(User.objects.get(username=player))
                 return JsonResponse({'success': team.name})
             if 'add_leader' in request.POST:
                 team = request.POST.get('team')
                 player = request.POST.get('add_leader')
                 team = Team.objects.get(pk=int(team))
-                team.leader = User.get(username=player)
+                team.leader = User.objects.get(username=player)
                 return JsonResponse({'success': team.name})
 
 class GameUpdate(View):
