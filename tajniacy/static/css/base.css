@@ -41,7 +41,7 @@ body {
 	width: 100%
 }
 .cardtable td,tr {
-	border: solid black 5px;
+	border: solid black 3px;
 	float: bottom;
 	text-align: center;
 	padding: 10px;
