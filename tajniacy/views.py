@@ -100,17 +100,20 @@ class GameUpdate(View):
                 card_list = []
                 current_user = request.user
 
-                if Team.objects.filter(game=game, leader=current_user).count() > 0:
-                    for card in Cards:
-                        card_list.append({'id':card.id, 'word': card.word.word, 'status': card.status})
-                else:
-                    if game.status == 'active':
+
+
+                if game.status == 'active':
+                    if Team.objects.filter(game=game, leader=current_user).count() > 0:
+                        for card in Cards:
+                            card_list.append({'id': card.id, 'word': card.word.word, 'status': card.status})
+                    else:
                         for card in Cards:
                             if card.visible == True:
                                 card_list.append({'id':card.id, 'word': card.word.word, 'visible': card.visible, 'status':card.status})
                             else:
                                 card_list.append({'id':card.id, 'word': card.word.word, 'visible': card.visible})
-                    elif game.status == 'new':
-                        for card in Cards:
-                                card_list.append({'id':card.id, 'word': card.word.word})
+                elif game.status == 'new':
+                    for card in Cards:
+                            card_list.append({'id':card.id, 'word': card.word.word})
+
                 return JsonResponse({'cards': card_list})
