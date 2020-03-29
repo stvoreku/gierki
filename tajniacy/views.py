@@ -94,7 +94,7 @@ class GameUpdate(View):
 
                 if Team.objects.filter(game=game, leader=current_user).exists():
                     for card in Cards:
-                        card_list.append({'id':card.id, 'word': card.word.word, 'visible': card.visible, 'status': card.status})
+                        card_list.append({'id':card.id, 'word': card.word.word, 'status': card.status})
                 else:
                     if game.status == 'active':
                         for card in Cards:
