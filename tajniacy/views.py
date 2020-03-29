@@ -62,6 +62,7 @@ class GameView(TemplateView):
             if 'game_status' in request.POST:
                 game = Game.objects.get(pk=int(self.kwargs['pk']))
                 game.status = request.POST.get('game_status')
+                game.save()
                 return JsonResponse({'success': int(self.kwargs['pk'])})
 
 class GameUpdate(View):
