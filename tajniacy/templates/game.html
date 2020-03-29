@@ -12,8 +12,8 @@
   <p id="team1id">{{team1.id}}</p>
   <h3 id="team1leader">Leader: {{team1.leader.get_username}}</h3>
 <ul id="team1">
-  {%for player in team1.player%}
-  <li>{{player.username}}</li>
+  {%for player in team1.player.all%}
+  <li>{{player.get_username}}</li>
   {%endfor%}
 </ul>
   {% if game.status == 'new' %}
@@ -35,8 +35,8 @@
   <p id="team2id">{{team2.id}}</p>
   <h3 id="team2leader">Leader: {{team2.leader.get_username}}</h3>
 <ul id="team2">
-    {%for player in team2.player%}
-  <li>{{player.username}}</li>
+    {%for player in team2.player.all%}
+  <li>{{player.get_username}}</li>
   {%endfor%}
 </ul>
 <select id="team2select" name="users">
