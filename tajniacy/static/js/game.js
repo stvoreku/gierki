@@ -64,7 +64,7 @@ function fillGame(cards) {
     $('.cardtable').append("<tr>")
     var arrayLength = cards.length;
     for (var i = 0; i < arrayLength; i++) {
-        if(i % 5 == 0) {$('.cardtable').append("</tr><tr>")}
+        if(i % 5 === 0) {$('.cardtable').append("</tr><tr>")}
 
         //console.log(i)
         //console.log(cards[i]);
@@ -72,8 +72,8 @@ function fillGame(cards) {
 
         inHTML += ("<td>" + cards[i].word)
         if ('visible' in cards[i]) {
-            if(cards[i].visible == False){inHTML += "<button>TAP</button>"}
-            if(cards[i].visible == True){inHTML += cards[i].status}
+            if(cards[i].visible === False){inHTML += "<button>TAP</button>"}
+            if(cards[i].visible === True){inHTML += cards[i].status}
         }
         $('.cardtable').append(inHTML)
 }
