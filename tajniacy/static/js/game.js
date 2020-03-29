@@ -67,7 +67,7 @@ function fillGame(cards) {
         console.log(cards[i]);
         var inHTML = ""
         if(i % 5 == 0) {inHTML += "<tr>"}
-        inHTML += ('<td>' + cards[i].word + '</td>')
+        inHTML += cards[i].word
         $('.cardtable').append(inHTML)
 }
 
