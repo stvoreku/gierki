@@ -65,9 +65,10 @@
 <div class="game">
 <table class="cardtable">
   {% for cards in cards%}
-  <tr>
+  {% if forloop.counter|divisibleby:5 %}
+  <tr></tr>
+  {%endif%}
     <td>{{cards.id}}{{cards.word.word}}</td>
-  </tr>
   {%endfor%}
 </div>
 </table>

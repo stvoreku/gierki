@@ -26,7 +26,7 @@ class HomeView(TemplateView):
             team_2 = Team(name = 'blue', game = game)
             team_1.save()
             team_2.save()
-            random_index = random.sample(list(Word.objects.values_list('id', flat=True)), 2)
+            random_index = random.sample(list(Word.objects.values_list('id', flat=True)), 25)
             for a in random_index:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='None')
