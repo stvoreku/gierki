@@ -27,21 +27,28 @@ class HomeView(TemplateView, LoginRequiredMixin):
             team_1.save()
             team_2.save()
             random_index = random.sample(list(Word.objects.values_list('id', flat=True)), 25)
+            cards_list = []
             for a in random_index[0:6]:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='blue')
-                newCard.save()
+                cards_list.append(newCard)
+                #newCard.save()
             for a in random_index[6:10]:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='red')
-                newCard.save()
+                #newCard.save()
+                cards_list.append(newCard)
             for a in random_index[10:24]:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='none')
-                newCard.save()
+                #newCard.save()
+                cards_list.append(newCard)
             word = Word.objects.get(pk=int(random_index[24]))
             newCard = Card(word=word, game=game, status='death')
-            newCard.save()
+            cards_list.append(newCard)
+            random.shuffle(cards_list)
+            for card in cards_list:
+                card.save()
             return JsonResponse({'gamelink':'{}/'.format(game.id)})
 
 class GameView(LoginRequiredMixin, TemplateView):
