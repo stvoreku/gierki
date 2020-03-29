@@ -127,6 +127,7 @@ function fillGame(cards) {
     $('.cardtable').empty()
     var arrayLength = cards.length;
     for (var i = 0; i < arrayLength; i++) {
+        console.log(i)
         console.log(cards[i]);
         var inHTML = ""
         if(i % 5 == 0) {inHTML += "<tr>"}
