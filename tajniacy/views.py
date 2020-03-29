@@ -28,17 +28,17 @@ class HomeView(TemplateView, LoginRequiredMixin):
             team_2.save()
             random_index = random.sample(list(Word.objects.values_list('id', flat=True)), 25)
             cards_list = []
-            for a in random_index[0:6]:
+            for a in random_index[0:9]:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='blue')
                 cards_list.append(newCard)
                 #newCard.save()
-            for a in random_index[6:10]:
+            for a in random_index[9:17]:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='red')
                 #newCard.save()
                 cards_list.append(newCard)
-            for a in random_index[10:24]:
+            for a in random_index[17:24]:
                 word = Word.objects.get(pk=int(a))
                 newCard = Card(word = word, game = game, status='none')
                 #newCard.save()
