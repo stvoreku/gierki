@@ -1,0 +1,25 @@
+<!-- templates/registration/login.html -->
+
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" >
+
+	<head>
+		<meta charset = "utf-8"/>
+		<meta name="description" content="a page to vote"/>
+		<title>vote</title>
+		<link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="../../static/css/style_login.css" />
+	</head>
+
+	<body>
+		<div id="content">
+			<h2>Login</h2>
+			<form method="post">
+			  {% csrf_token %}
+				  <div class="data">
+					{{ form.as_p }}
+				  </div>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+	</body>
+</html>
