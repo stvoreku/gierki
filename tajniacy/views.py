@@ -65,6 +65,10 @@ class GameView(LoginRequiredMixin, TemplateView):
                 game.status = request.POST.get('game_status')
                 game.save()
                 return JsonResponse({'success': int(self.kwargs['pk'])})
+            if 'card_tap' in request.POST:
+                card = Card.objects.get(pk=int(request.POST.get('card_tap')))
+                card.visible = True;
+                card.save()
 
 class GameUpdate(View):
 

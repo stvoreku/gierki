@@ -56,7 +56,24 @@ $(function() {
 
 });
 
+function tap(card){
+        $.ajax({
+    url : "", // the endpoint
+    type : "POST", // http method
+    data : {
+    'card_tap':card
+    }, // data sent with the post request
 
+    success : function(json) {
+	    console.log(json)
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+}
 
 function fillGame(cards) {
 
@@ -72,7 +89,7 @@ function fillGame(cards) {
 
         inHTML += ("<td>" + cards[i].word)
         if ('visible' in cards[i]) {
-            if(cards[i].visible === false){inHTML += "<button>TAP</button>"}
+            if(cards[i].visible === false){inHTML += "<button onclick='tap'>TAP</button>"}
             if(cards[i].visible === true){inHTML += cards[i].status}
         }
         $('.cardtable').append(inHTML)
