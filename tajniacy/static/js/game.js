@@ -129,7 +129,7 @@ function fillGame(cards) {
     for (var i = 0; i < arrayLength; i++) {
 
     console.log(cards[i]);
-    $('.cardtable').append("<td>" + cards[i].name "</td>")
+    $('.cardtable').append("<td>" + cards[i].name + "</td>")
 }
 
 }
