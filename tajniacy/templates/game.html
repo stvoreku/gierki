@@ -30,6 +30,9 @@
 </div>
 
 {% endif %}
+
+
+
 <div class="team2class">
 {{team2.name}}
   <p id="team2id">{{team2.id}}</p>
@@ -39,6 +42,7 @@
   <li>{{player.get_username}}</li>
   {%endfor%}
 </ul>
+  {% if game.status == 'new' %}
 <select id="team2select" name="users">
 {% for u in users%}
 
@@ -52,14 +56,15 @@
 
 
 <button onclick="start_game()" class="start"> START </button>
-karty
-{% for c in cards%}
-{{card.id}}{{card.word.word}} lala
-{%endfor%}
+{% endif %}
+
+
 <table class="cardtable">
+  {% for c in cards%}
   <tr>
-    <td></td>
+    <td>{{card.id}}{{card.word.word}}</td>
   </tr>
+  {%endfor%}
 </table>
 <script>
 
