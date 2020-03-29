@@ -60,7 +60,7 @@ $(function() {
 function game_update(gamenum) {
     console.log('update')
         $.ajax({
-    url : "/game", // the endpoint
+    url : "/game/", // the endpoint
     type : "GET", // http method
     data : {
     'game_number': gamenum
