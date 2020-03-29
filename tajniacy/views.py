@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import random
 # Create your views here.
 
-class HomeView(TemplateView):
+class HomeView(TemplateView, LoginRequiredMixin):
     template_name = 'home.html'
 
 
@@ -72,11 +72,16 @@ class GameUpdate(View):
         if request.is_ajax():
             if 'game_number' in request.GET:
                 gameid = request.GET.get('game_number')
-                Cards = Card.objects.filter(game = Game.objects.get(pk=int(gameid)))
+                game = Game.objects.get(pk=int(gameid))
+                Cards = Card.objects.filter(game = game)
                 card_list = []
-                for card in Cards:
-                    if card.visible == True:
-                        card_list.append({'word': card.word.word, 'visible': card.visible, 'status':card.status})
-                    else:
-                        card_list.append({'word': card.word.word, 'visible': card.visible})
+                if game.status == 'active':
+                    for card in Cards:
+                        if card.visible == True:
+                            card_list.append({'word': card.word.word, 'visible': card.visible, 'status':card.status})
+                        else:
+                            card_list.append({'word': card.word.word, 'visible': card.visible})
+                elif game.status == 'new':
+                    for card in Cards:
+                            card_list.append({'word': card.word.word})
                 return JsonResponse({'cards': card_list})
