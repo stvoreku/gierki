@@ -46,3 +46,7 @@ body {
 	float: right;
 	text-align: right;
 }
+
+.gameslist {
+	list-style-type: none;
+}
