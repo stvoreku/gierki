@@ -57,6 +57,25 @@ $(function() {
 });
 
 
+
+function fillGame(cards) {
+
+    $('.cardtable').empty()
+    var arrayLength = cards.length;
+    for (var i = 0; i < arrayLength; i++) {
+        console.log(i)
+        console.log(cards[i]);
+        var inHTML = ""
+        if(i % 5 == 0) {inHTML += "<tr>"}
+        inHTML += ('<td>' + cards[i].word '</td>')
+        $('.cardtable').append(inHTML)
+}
+
+}
+
+
+
+
 function game_update(gamenum) {
     console.log('update')
         $.ajax({
@@ -68,6 +87,8 @@ function game_update(gamenum) {
 
     success : function(json) {
 	    console.log(json)
+        cards = json['cards']
+        fillGame(cards);
         },
 
         // handle a non-successful response
@@ -122,21 +143,6 @@ function add_leader(selector, team){
 
 }
 
-function fillGame(cards) {
-
-    $('.cardtable').empty()
-    var arrayLength = cards.length;
-    for (var i = 0; i < arrayLength; i++) {
-        console.log(i)
-        console.log(cards[i]);
-        var inHTML = ""
-        if(i % 5 == 0) {inHTML += "<tr>"}
-        inHTML += ('<td>' + cards[i].word '</td>')
-        $('.cardtable').append(inHTML)
-}
-
-}
-
 function start_game(){
             $.ajax({
     url : "", // the endpoint
@@ -147,8 +153,7 @@ function start_game(){
 
     success : function(json) {
 	    console.log(json)
-        cards = json['cards']
-        fillGame(cards);
+
         location.reload();
         },
 
