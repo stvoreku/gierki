@@ -35,6 +35,8 @@ body {
 
 .cardtable {
 	border: solid black;
+	float: bottom;
+	text-align: center;
 }
 
 .team1class {
