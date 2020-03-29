@@ -60,9 +60,9 @@
 
 
 <table class="cardtable">
-  {% for c in cards%}
+  {% for cards in cards%}
   <tr>
-    <td>{{card.id}}{{card.word.word}}</td>
+    <td>{{cards.id}}{{cards.word.word}}</td>
   </tr>
   {%endfor%}
 </table>
