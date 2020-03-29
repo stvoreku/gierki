@@ -88,6 +88,7 @@ function add_player(selector, team) {
 
     success : function(json) {
 	    console.log(json)
+        location.reload();
         },
 
         // handle a non-successful response
@@ -96,7 +97,7 @@ function add_player(selector, team) {
         }
     });
 
-    location.reload();
+
 }
 function add_leader(selector, team){
     console.log(team)
@@ -109,6 +110,7 @@ function add_leader(selector, team){
 
     success : function(json) {
 	    console.log(json)
+        location.reload();
         },
 
         // handle a non-successful response
@@ -117,7 +119,7 @@ function add_leader(selector, team){
         }
     });
 
-    location.reload();
+
 }
 
 function start_game(){
