@@ -64,15 +64,7 @@
 
 <div class="game">
 <table class="cardtable">
-  <tr>
-  {% for cards in cards%}
 
-  {% if forloop.counter|divisibleby:5 %}
-  </tr><tr>
-  {%endif%}
-    <td>{{cards.word.word}}</td>
-  {%endfor%}
-  </tr>
 </table>
 </div>
 <script>
