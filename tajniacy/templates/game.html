@@ -14,6 +14,7 @@
 <ul id="team1">
   {%for player in team1.players%}
   <li>{{player.username}}</li>
+  {%endfor%}
 </ul>
   {% if game.status == 'new' %}
 
@@ -36,6 +37,7 @@
 <ul id="team2">
     {%for player in team2.players%}
   <li>{{player.username}}</li>
+  {%endfor%}
 </ul>
 <select id="team2select" name="users">
 {% for u in users%}
