@@ -38,7 +38,7 @@ body {
 	float: bottom;
 	text-align: center;
 	padding: 10px;
-	width: 80%
+	width: 100%
 }
 .team1class {
 	float: left;
@@ -55,7 +55,7 @@ body {
 }
 
 .game {
-	width: 100%
+	margin:auto;
 }
 
 .grid-container {
