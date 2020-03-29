@@ -96,7 +96,7 @@ function add_player(selector, team) {
         }
     });
 
-    //location.reload();
+    location.reload();
 }
 function add_leader(selector, team){
     console.log(team)
@@ -117,7 +117,7 @@ function add_leader(selector, team){
         }
     });
 
-    //location.reload();
+    location.reload();
 }
 
 function start_game(){
