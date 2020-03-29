@@ -60,14 +60,17 @@ $(function() {
 
 function fillGame(cards) {
 
-    $('.cardtable').empty()
+    $('.cardtable').empty();
+    $('.cardtable').append("<tr>")
     var arrayLength = cards.length;
     for (var i = 0; i < arrayLength; i++) {
+        if(i % 5 == 0) {$('.cardtable').append("</tr><tr>")}
+
         console.log(i)
         console.log(cards[i]);
         var inHTML = ""
-        if(i % 5 == 0) {inHTML += "<tr>"}
-        inHTML += cards[i].word
+
+        inHTML += ("<td>" + cards[i].word + "</td>")
         $('.cardtable').append(inHTML)
 }
 
