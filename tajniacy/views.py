@@ -33,7 +33,7 @@ class HomeView(TemplateView, LoginRequiredMixin):
                 newCard.save()
             return JsonResponse({'gamelink':'{}/'.format(game.id)})
 
-class GameView(TemplateView, LoginRequiredMixin):
+class GameView(LoginRequiredMixin, TemplateView):
     template_name = 'game.html'
 
     def get_context_data(self, **kwargs):
