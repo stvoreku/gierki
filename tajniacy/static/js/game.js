@@ -124,12 +124,14 @@ function add_leader(selector, team){
 
 function fillGame(cards) {
 
-    $('.cardtable').clear()
+    $('.cardtable').empty()
     var arrayLength = cards.length;
     for (var i = 0; i < arrayLength; i++) {
-
-    console.log(cards[i]);
-    $('.cardtable').append("<td>" + cards[i].name + "</td>")
+        console.log(cards[i]);
+        var inHTML = ""
+        if(i % 5 == 0) {inHTML += "<tr>"}
+        inHTML += ('<td>' + cards[i].word '</td>')
+        $('.cardtable').append(inHTML)
 }
 
 }
