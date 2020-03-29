@@ -37,17 +37,8 @@ body {
 	border: solid black;
 	float: bottom;
 	text-align: center;
-	padding: 10px
-}
-.cardtable > td{
-	border: solid black;
-	float: bottom;
-	text-align: center;
-}
-.cardtable > tr{
-	border: solid black;
-	float: bottom;
-	text-align: center;
+	padding: 10px;
+	border-collapse: collapse;
 }
 .team1class {
 	float: left;
