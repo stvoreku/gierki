@@ -71,4 +71,7 @@ class GameUpdate(View):
             if 'game_number' in request.GET:
                 gameid = request.GET.get('game_number')
                 Cards = Card.objects.filter(game = Game.objects.get(pk=int(gameid)))
-                return JsonResponse({'cards': gameid})
+                card_list = []
+                for card in Cards:
+                    card_list.append(card.id)
+                return JsonResponse({'cards': card_list})
