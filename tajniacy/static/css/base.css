@@ -39,6 +39,7 @@ body {
 	text-align: center;
 	padding: 10px;
 	border-collapse: collapse;
+	width: 80%
 }
 .team1class {
 	float: left;
@@ -52,4 +53,8 @@ body {
 
 .gameslist {
 	list-style-type: none;
+}
+
+.game {
+	width: 80%
 }
