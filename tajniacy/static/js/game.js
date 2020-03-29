@@ -132,6 +132,7 @@ function start_game(){
 
     success : function(json) {
 	    console.log(json)
+        location.reload();
         },
 
         // handle a non-successful response
@@ -140,6 +141,6 @@ function start_game(){
         }
     });
 
-    //location.reload();
+
 }
 
