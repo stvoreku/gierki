@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, View
 from .models import Game, Team, Word, Card
 from django.contrib.auth.models import User
 from django.http import JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 import random
 # Create your views here.
 
@@ -32,7 +33,7 @@ class HomeView(TemplateView):
                 newCard.save()
             return JsonResponse({'gamelink':'{}/'.format(game.id)})
 
-class GameView(TemplateView):
+class GameView(TemplateView, LoginRequiredMixin):
     template_name = 'game.html'
 
     def get_context_data(self, **kwargs):
