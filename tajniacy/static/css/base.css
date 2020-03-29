@@ -70,3 +70,20 @@ body {
   grid-template-columns: auto auto;
   padding: 10px;
 }
+
+.blue {
+	background-color: cornflowerblue;
+	color: white;
+}
+
+.red {
+	background-color: salmon;
+}
+
+.death {
+	background-color: dimgray;
+}
+
+.none {
+	background-color: lightgoldenrodyellow;
+}
