@@ -6,6 +6,9 @@
 
 <h1 class="title">Gra numer {{game.id}}, Status: {{game.status}}</h1>
 <p id="gameid" style="display: none">{{game.id}}</p>
+
+<div class="grid-container">
+  <div class="grid-item">
 <div class="team1class">
   <h1>{{team1.name}}</h1>
   <h3 id="team1leader">Leader: {{team1.leader.get_username}}</h3>
@@ -27,11 +30,11 @@
   <button onclick="add_leader('#team1select','{{team1.id}}')" class="start"> Leader </button>
   {% endif %}
 </div>
+</div>
 
 
 
-
-
+<div class="grid-item">
 <div class="team2class">
   <h1>{{team2.name}}</h1>
   <h3 id="team2leader">Leader: {{team2.leader.get_username}}</h3>
@@ -51,6 +54,8 @@
   <button onclick="add_player('#team2select', '{{team2.id}}')" class="start"> + </button>
   <button onclick="add_leader('#team2select', '{{team2.id}}')" class="start"> Leader </button>
   {% endif %}
+</div>
+</div>
 </div>
 
 {% if game.status == 'new' %}
