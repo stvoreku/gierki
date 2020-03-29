@@ -66,11 +66,15 @@ function fillGame(cards) {
     for (var i = 0; i < arrayLength; i++) {
         if(i % 5 == 0) {$('.cardtable').append("</tr><tr>")}
 
-        console.log(i)
-        console.log(cards[i]);
+        //console.log(i)
+        //console.log(cards[i]);
         var inHTML = ""
 
-        inHTML += ("<td>" + cards[i].word + "</td>")
+        inHTML += ("<td>" + cards[i].word)
+        if ('visible' in cards[i]) {
+            if(cards[i].visible == False){inHTML += "<button>TAP</button>"}
+            if(cards[i].visible == True){inHTML += cards[i].status}
+        }
         $('.cardtable').append(inHTML)
 }
 
