@@ -43,7 +43,7 @@ class GameView(LoginRequiredMixin, TemplateView):
         context['team1'] = Team.objects.get(game=game, name='red')
         context['team2'] = Team.objects.get(game=game, name='blue')
         context['users'] = User.objects.all()
-        context['cards'] = Card.objects.filter(game=game)
+        context['cards'] = Card.objects.filter(game=game).order_by('id')
         return context
     def post(self, request, *args, **kwargs):
         if request.is_ajax():
@@ -73,7 +73,7 @@ class GameUpdate(View):
             if 'game_number' in request.GET:
                 gameid = request.GET.get('game_number')
                 game = Game.objects.get(pk=int(gameid))
-                Cards = Card.objects.filter(game = game)
+                Cards = Card.objects.filter(game = game).order_by('id')
                 card_list = []
                 current_user = request.user
 

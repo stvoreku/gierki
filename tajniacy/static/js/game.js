@@ -122,6 +122,18 @@ function add_leader(selector, team){
 
 }
 
+function fillGame(cards) {
+
+    $('.cardtable').clear()
+    var arrayLength = cards.length;
+    for (var i = 0; i < arrayLength; i++) {
+
+    console.log(cards[i]);
+    $('.cardtable').append("<td>" + cards[i].name "</td>")
+}
+
+}
+
 function start_game(){
             $.ajax({
     url : "", // the endpoint
@@ -132,6 +144,8 @@ function start_game(){
 
     success : function(json) {
 	    console.log(json)
+        cards = json['cards']
+        fillGame(cards);
         location.reload();
         },
 
