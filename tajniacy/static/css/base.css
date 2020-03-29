@@ -40,6 +40,13 @@ body {
 	padding: 10px;
 	width: 100%
 }
+.cardtable td,tr {
+	border: solid black 5px;
+	float: bottom;
+	text-align: center;
+	padding: 10px;
+
+}
 .team1class {
 	float: left;
 	text-align: left;
