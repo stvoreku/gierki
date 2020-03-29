@@ -92,6 +92,12 @@ function fillGame(cards) {
             if(cards[i].visible === false){inHTML += "<button onclick='tap(" + cards[i].id + ")'>TAP</button>"}
             if(cards[i].visible === true){inHTML += cards[i].status}
         }
+        if('status' in cards[i])
+            {
+                inHTML += cards[i].status
+
+            }
+            inHTML += "</td>"
         $('.cardtable').append(inHTML)
 }
 
