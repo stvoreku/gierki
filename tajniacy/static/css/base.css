@@ -34,11 +34,10 @@ body {
 }
 
 .cardtable {
-	border: solid black;
+	border: solid black 5px;
 	float: bottom;
 	text-align: center;
 	padding: 10px;
-	border-collapse: collapse;
 	width: 80%
 }
 .team1class {
