@@ -73,5 +73,5 @@ class GameUpdate(View):
                 Cards = Card.objects.filter(game = Game.objects.get(pk=int(gameid)))
                 card_list = []
                 for card in Cards:
-                    card_list.append(card.id)
+                    card_list.append({'word':card.word.word, 'visible':card.visible})
                 return JsonResponse({'cards': card_list})
