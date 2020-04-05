@@ -7,7 +7,6 @@ body {
 
 }
 
-
 .start {
 	box-shadow: 0px 10px 14px -7px #3e7327;
 	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
@@ -45,6 +44,8 @@ body {
 	float: bottom;
 	text-align: center;
 	padding: 10px;
+	background-color: beige;
+	border-radius: 5px;
 
 }
 .team1class {

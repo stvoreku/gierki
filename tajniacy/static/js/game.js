@@ -79,7 +79,7 @@ function fillGame(cards) {
 
     $('.cardtable').empty();
     $('.cardtable').append("<tr>")
-    var arrayLength = cards.length;
+    var arrayLength = cards.length;            // True == 1 #prawdziwe True === 1 #falszy
     for (var i = 0; i < arrayLength; i++) {
         if(i % 5 === 0) {$('.cardtable').append("</tr><tr>")}
 
@@ -95,7 +95,7 @@ function fillGame(cards) {
         }
         if ('visible' in cards[i]) {
             if(cards[i].visible === false){inHTML += "<button onclick='tap(" + cards[i].id + ")'>TAP</button>"}
-            if(cards[i].visible === true){inHTML += "ODKRYTA"}
+            if(cards[i].visible === true){inHTML += " ODKRYTA"}
         }
 
             inHTML += "</td>"

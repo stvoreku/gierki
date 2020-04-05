@@ -12,6 +12,7 @@ class Game(models.Model):
 class Word(models.Model):
     uses = models.IntegerField(default=0)
     word = models.CharField(max_length=100, unique=True)
+
     def __str__(self):
         return self.word
 
@@ -20,7 +21,6 @@ class Card(models.Model):
     visible = models.BooleanField(default=False)
     status = models.CharField(max_length=10)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
-
 
 
 class Team(models.Model):

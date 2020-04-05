@@ -65,13 +65,13 @@ class GameView(LoginRequiredMixin, TemplateView):
         return context
     def post(self, request, *args, **kwargs):
         if request.is_ajax():
-            if 'add_player' in request.POST:
+            if 'add_player' in request.POST: #dodawania gracza
                 team = request.POST.get('team')
                 player = request.POST.get('add_player')
                 team = Team.objects.get(pk=int(team))
                 team.player.add(User.objects.get(username=player))
                 return JsonResponse({'success': team.name})
-            if 'add_leader' in request.POST:
+            if 'add_leader' in request.POST: #dodawnie lidera
                 team = request.POST.get('team')
                 player = request.POST.get('add_leader')
                 team = Team.objects.get(pk=int(team))
@@ -98,7 +98,7 @@ class GameUpdate(View):
                 game = Game.objects.get(pk=int(gameid))
                 Cards = Card.objects.filter(game = game).order_by('id')
                 card_list = []
-                current_user = request.user
+                current_user = request.user #np bryla
 
 
 
