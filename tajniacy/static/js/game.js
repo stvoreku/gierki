@@ -95,7 +95,7 @@ function fillGame(cards) {
         }
         if ('visible' in cards[i]) {
             if(cards[i].visible === false){inHTML += "<button class='tapBtn' onclick='tap(" + cards[i].id + ")'>ODKRYJ</button>"}
-            if(cards[i].visible === true){inHTML += " <br>ODKRYTA: {}".format(cards[i].uncovered_by)}
+            if(cards[i].visible === true){inHTML += " <br>ODKRYTA: " + cards[i].uncovered_by}
         }
 
             inHTML += "</td>"
