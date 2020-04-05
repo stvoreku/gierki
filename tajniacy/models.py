@@ -21,6 +21,7 @@ class Card(models.Model):
     visible = models.BooleanField(default=False)
     status = models.CharField(max_length=10)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    uncovered_by = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
 
 class Team(models.Model):
