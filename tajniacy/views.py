@@ -110,7 +110,7 @@ class GameUpdate(View):
                     else:
                         for card in Cards:
                             if card.visible == True:
-                                card_list.append({'id':card.id, 'word': card.word.word, 'visible': card.visible, 'status':card.status})
+                                card_list.append({'id':card.id, 'word': card.word.word, 'visible': card.visible, 'status':card.status, 'uncovered_by': card.uncovered_by.username})
                             else:
                                 card_list.append({'id':card.id, 'word': card.word.word, 'visible': card.visible})
                 elif game.status == 'new':
