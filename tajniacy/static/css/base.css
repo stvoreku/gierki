@@ -32,6 +32,20 @@ body {
 	top:1px;
 }
 
+.tapBtn {
+	box-shadow: 0px 10px 14px -7px #3e7327;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color: dimgray;
+	border-radius: 8px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color: whitesmoke;
+	font-size:13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+}
+
 .cardtable {
 	border: solid black 5px;
 	float: bottom;
@@ -44,7 +58,7 @@ body {
 	float: bottom;
 	text-align: center;
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 10px;
 	min-height: 80px;
 
 }
