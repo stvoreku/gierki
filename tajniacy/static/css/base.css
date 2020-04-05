@@ -3,6 +3,11 @@ body {
 	text-align: center;
 }
 
+td {
+	background-color: beige;
+}
+
+
 .title {
 
 }
