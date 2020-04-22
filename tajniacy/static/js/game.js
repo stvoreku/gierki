@@ -158,7 +158,7 @@ function add_player(selector, team) {
 
     success : function(json) {
 	    console.log(json)
-        location.reload();
+        //location.reload();
         },
 
         // handle a non-successful response
@@ -180,7 +180,7 @@ function add_leader(selector, team){
 
     success : function(json) {
 	    console.log(json)
-        location.reload();
+        //location.reload();
         },
 
         // handle a non-successful response
