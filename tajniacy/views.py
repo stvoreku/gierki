@@ -106,7 +106,10 @@ class GameUpdate(View):
                 teams = Team.objects.filter(game=game)
                 teams_list = {}
                 for team in teams:
-                    teams_list[team.name] = {'leader': team.leader, 'players': list(team.player.all().id)}
+                    players = []
+                    for player in teams.players.all():
+                        players.append(player.username)
+                    teams_list[team.name] = {'leader': team.leader, 'players': players}
 
                 # Pozyskiwanie informacji o kartach
 
