@@ -104,6 +104,12 @@ function fillGame(cards) {
 
 }
 
+function fillPlayers(players){
+
+
+
+}
+
 
 
 
@@ -119,6 +125,8 @@ function game_update(gamenum) {
     success : function(json) {
 	    console.log(json)
         cards = json['cards']
+        players = json['players']
+        fillPlayers(players)
         fillGame(cards);
         },
 
