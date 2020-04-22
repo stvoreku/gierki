@@ -109,7 +109,7 @@ class GameUpdate(View):
                     players = []
                     for player in team.player.all():
                         players.append(player.username)
-                    teams_list[team.name] = {'leader': team.leader, 'players': players}
+                    teams_list[team.name] = {'leader': team.leader.username, 'players': players}
 
                 # Pozyskiwanie informacji o kartach
 
