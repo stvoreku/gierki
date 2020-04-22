@@ -103,7 +103,7 @@ class GameUpdate(View):
                 gameid = request.GET.get('game_number')
                 game = Game.objects.get(pk=int(gameid))
                 # Pozyskiwanie listy graczy
-                teams = Team.objects.filter(game=game)
+                teams = Team.objects.filter(game=game).order_by('id')
                 teams_list = {}
                 for team in teams:
                     players = []
