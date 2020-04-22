@@ -8,6 +8,11 @@
     <title>Tajniacy</title>
 </head>
 <body>
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+{% else %}
+<p>Welcome, new user. Please <a href =/accounts/login/> Log in. </a></p>
+{% endif %}
 {% block content %}
 
 {% endblock %}
