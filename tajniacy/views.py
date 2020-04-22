@@ -107,7 +107,7 @@ class GameUpdate(View):
                 teams_list = {}
                 for team in teams:
                     players = []
-                    for player in teams.player.all():
+                    for player in team.player.all():
                         players.append(player.username)
                     teams_list[team.name] = {'leader': team.leader, 'players': players}
 
