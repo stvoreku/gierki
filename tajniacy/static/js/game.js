@@ -119,7 +119,7 @@ function fillPlayers(teams){
         $("team1").append('<li>' + p + '</li>')
     }
     for (p in teams[team2].players) {
-        $("team2").append('<li>' + a + '</li>')
+        $("team2").append('<li>' + p + '</li>')
     }
     //$("#team1id").appendChild(teams[team1].players)
     //$("#team2id").appendChild(teams[team1].players)
