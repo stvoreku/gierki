@@ -125,7 +125,7 @@ function fillPlayers(teams){
 
 
 function game_update(gamenum) {
-    console.log('update')
+
         $.ajax({
     url : "/game/", // the endpoint
     type : "GET", // http method
@@ -134,7 +134,7 @@ function game_update(gamenum) {
     }, // data sent with the post request
 
     success : function(json) {
-	    console.log(json)
+
         cards = json['cards']
         teams = json['teams']
         fillPlayers(teams)
