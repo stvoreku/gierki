@@ -11,7 +11,7 @@
 {% if user.is_authenticated %}
 <p>Welcome, {{ user.get_username }}. Thanks for logging in. <a href =/accounts/logout/> Log out.</a></p>
 {% else %}
-<p>Welcome, new user. Please <a href =/accounts/login/> Log in. </a></p>
+<p>Welcome, new user. Please <a href =/accounts/login/?next={{ request.path }}> Log in. </a></p>
 {% endif %}
 {% block content %}
 

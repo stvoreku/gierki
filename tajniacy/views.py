@@ -91,7 +91,8 @@ class GameView(LoginRequiredMixin, TemplateView):
                 return JsonResponse({'success': int(self.kwargs['pk'])})
 
 class GameUpdate(View):
-
+    #TODO list graczy poszczególnych drużyn
+    #TODO refactor na ogólną klasę GameUpdate (uuuu!)
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
             if 'game_number' in request.GET:
