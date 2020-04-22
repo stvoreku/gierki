@@ -115,8 +115,8 @@ function fillPlayers(players){
     $("#team1leader").val(players.team1.leader)
     $("#team2leader").val(players.team2.leader)
 
-    $("#team1leader").appendChild(players.team1.players)
-    $("#team2leader").appendChild(players.team2.players)
+    $("#team1id").appendChild(players.team1.players)
+    $("#team2id").appendChild(players.team2.players)
 
 }
 
