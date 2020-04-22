@@ -109,7 +109,11 @@ class GameUpdate(View):
                     players = []
                     for player in team.player.all():
                         players.append(player.username)
-                    teams_list[team.name] = {'leader': team.leader.username, 'players': players}
+                    try:
+                        leader = team.leader.username
+                    except:
+                        leader = None
+                    teams_list[team.name] = {'leader': leader, 'players': players}
 
                 # Pozyskiwanie informacji o kartach
 
