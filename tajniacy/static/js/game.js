@@ -115,8 +115,8 @@ function fillPlayers(teams){
 
     $("#team1leader").text("Leader:" +  teams[team1].leader)
     $("#team2leader").text("Leader:" + teams[team2].leader)
-    $("#team1").clear()
-    $("#team2").clear()
+    $("#team1").empty()
+    $("#team2").empty()
     for (p in teams[team1].players) {
         $("#team1").append('<li>' + teams[team1].players[p] + '</li>')
     }
