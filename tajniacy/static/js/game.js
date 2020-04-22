@@ -110,11 +110,11 @@ function fillPlayers(teams){
     team1 = Object.keys(teams)[0]
     team2 = Object.keys(teams)[1]
 
-    $("#team1name").val(team1)
-    $("#team2name").val(team2)
+    $("#team1name").text(team1)
+    $("#team2name").text(team2)
 
-    $("#team1leader").val(teams[team1].leader)
-    $("#team2leader").val(teams[team2].leader)
+    $("#team1leader").text(teams[team1].leader)
+    $("#team2leader").text(teams[team2].leader)
 
     //$("#team1id").appendChild(teams[team1].players)
     //$("#team2id").appendChild(teams[team1].players)
