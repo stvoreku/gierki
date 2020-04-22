@@ -95,9 +95,17 @@ class GameUpdate(View):
     #TODO refactor na ogólną klasę GameUpdate (uuuu!)
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
+
+
+
+
             if 'game_number' in request.GET:
                 gameid = request.GET.get('game_number')
                 game = Game.objects.get(pk=int(gameid))
+                # Pozyskiwanie listy graczy
+                teams = Team.objects.filter(game=game)
+                # Pozyskiwanie informacji o kartach
+
                 Cards = Card.objects.filter(game = game).order_by('id')
                 card_list = []
                 current_user = request.user #np bryla
