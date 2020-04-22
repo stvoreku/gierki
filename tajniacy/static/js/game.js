@@ -115,7 +115,12 @@ function fillPlayers(teams){
 
     $("#team1leader").text(teams[team1].leader)
     $("#team2leader").text(teams[team2].leader)
-
+    for (p in teams[team1].players) {
+        $("team1id").append('<li>a</li>')
+    }
+    for (p in teams[team2].players) {
+        $("team2id").append('<li>a</li>')
+    }
     //$("#team1id").appendChild(teams[team1].players)
     //$("#team2id").appendChild(teams[team1].players)
 
