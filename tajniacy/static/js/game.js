@@ -104,19 +104,20 @@ function fillGame(cards) {
 
 }
 
-function fillPlayers(players){
+function fillPlayers(teams){
 
-    team1 = players.keys[0]
-    team2 = players.keys[1]
+    console.log(teams)
+    team1 = teams.keys()[0]
+    team2 = teams.keys()[1]
 
     $("#team1name").val(team1)
     $("#team2name").val(team2)
 
-    $("#team1leader").val(players.team1.leader)
-    $("#team2leader").val(players.team2.leader)
+    $("#team1leader").val(teams.team1.leader)
+    $("#team2leader").val(teams.team2.leader)
 
-    $("#team1id").appendChild(players.team1.players)
-    $("#team2id").appendChild(players.team2.players)
+    $("#team1id").appendChild(teams.team1.players)
+    $("#team2id").appendChild(teams.team2.players)
 
 }
 
@@ -135,8 +136,8 @@ function game_update(gamenum) {
     success : function(json) {
 	    console.log(json)
         cards = json['cards']
-        players = json['players']
-        fillPlayers(players)
+        teams = json['teams']
+        fillPlayers(teams)
         fillGame(cards);
         },
 
