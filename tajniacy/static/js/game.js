@@ -106,7 +106,17 @@ function fillGame(cards) {
 
 function fillPlayers(players){
 
+    team1 = players.keys()[0]
+    team2 = players.keys()[1]
 
+    $("#team1name").val(team1)
+    $("#team2name").val(team2)
+
+    $("#team1leader").val(players.team1.leader)
+    $("#team2leader").val(players.team2.leader)
+
+    $("#team1leader").appendChild(players.team1.players)
+    $("#team2leader").appendChild(players.team2.players)
 
 }
 

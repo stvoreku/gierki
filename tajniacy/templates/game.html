@@ -10,7 +10,7 @@
 <div class="grid-container">
   <div class="grid-item">
 <div class="team1class">
-  <h1>{{team1.name}}</h1>
+  <h1 id="team1name">{{team1.name}}</h1>
   <h3 id="team1leader">Leader: {{team1.leader.get_username}}</h3>
 <ul id="team1">
   {%for player in team1.player.all%}
@@ -36,7 +36,7 @@
 
 <div class="grid-item">
 <div class="team2class">
-  <h1>{{team2.name}}</h1>
+  <h1 id="team2name">{{team2.name}}</h1>
   <h3 id="team2leader">Leader: {{team2.leader.get_username}}</h3>
 <ul id="team2">
     {%for player in team2.player.all%}
