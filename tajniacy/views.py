@@ -103,7 +103,10 @@ class GameUpdate(View):
                 gameid = request.GET.get('game_number')
                 game = Game.objects.get(pk=int(gameid))
                 # Pozyskiwanie listy graczy
-                teams = dict(Team.objects.filter(game=game))
+                teams = Team.objects.filter(game=game)
+                teams_list = {}
+                for team in teams:
+                    teams_list{team.name} = {'leader': team.leader, 'players': team.player}
 
                 # Pozyskiwanie informacji o kartach
 
@@ -126,4 +129,4 @@ class GameUpdate(View):
                 elif game.status == 'new':
                     for card in Cards:
                             card_list.append({'id':card.id, 'word': card.word.word})
-                return JsonResponse({'cards': card_list, 'teams': teams})
+                return JsonResponse({'cards': card_list, 'teams': teams_list})
