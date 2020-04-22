@@ -8,6 +8,7 @@
     <title>Tajniacy</title>
 </head>
 <body>
+
 {% if user.is_authenticated %}
 <p>Serwus,  {{ user.get_username }} <a href =/accounts/logout/> Wyloguj.</a></p>
 {% else %}

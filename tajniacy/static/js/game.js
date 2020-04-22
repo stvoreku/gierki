@@ -115,11 +115,13 @@ function fillPlayers(teams){
 
     $("#team1leader").text("Leader:" +  teams[team1].leader)
     $("#team2leader").text("Leader:" + teams[team2].leader)
+    $("#team1").clear()
+    $("#team2").clear()
     for (p in teams[team1].players) {
-        $("#team1").append('<li>' + p + '</li>')
+        $("#team1").append('<li>' + teams[team1].players[p] + '</li>')
     }
     for (p in teams[team2].players) {
-        $("#team2").append('<li>' + p + '</li>')
+        $("#team2").append('<li>' + teams[team2].players[p] + '</li>')
     }
     //$("#team1id").appendChild(teams[team1].players)
     //$("#team2id").appendChild(teams[team1].players)
