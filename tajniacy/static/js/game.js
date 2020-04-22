@@ -106,7 +106,7 @@ function fillGame(cards) {
 
 function fillPlayers(teams){
 
-    console.log(teams.keys())
+
     team1 = Object.keys(teams)[0]
     team2 = Object.keys(teams)[1]
 
