@@ -163,3 +163,4 @@ class GameUpdate(LoginRequiredMixin, View):
                     for card in Cards:
                             card_list.append({'id':card.id, 'word': card.word.word})
                 return JsonResponse({'cards': card_list, 'teams': teams_list, 'status':status})
+            return JsonResponse({'error':'error'})
