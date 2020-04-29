@@ -113,8 +113,8 @@ function fillPlayers(teams){
     $("#team1name").text(team1)
     $("#team2name").text(team2)
 
-    $("#team1leader").text("Leader:" +  teams[team1].leader)
-    $("#team2leader").text("Leader:" + teams[team2].leader)
+    $("#team1leader").text("Leader: " +  teams[team1].leader)
+    $("#team2leader").text("Leader: " + teams[team2].leader)
     $("#team1").empty()
     $("#team2").empty()
     for (p in teams[team1].players) {
