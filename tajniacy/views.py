@@ -88,6 +88,13 @@ class GameView(LoginRequiredMixin, TemplateView):
                 card.visible = True;
                 card.uncovered_by = request.user
                 card.save()
+                if card.status == 'death':
+                    game = card.game
+                    team = Team.objects.filter(game=game).exclude(player=request.user)[0]
+                    game.status = f"{team.name} won"
+                    for card in Card.objects.filter(game=game):
+                        card.visible = True
+                        card.save()
                 return JsonResponse({'success': int(self.kwargs['pk'])})
 
 class GameUpdate(LoginRequiredMixin, View):
