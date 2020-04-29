@@ -94,6 +94,8 @@ class GameView(LoginRequiredMixin, TemplateView):
                     game.status = f"{team.name} won"
                     for card in Card.objects.filter(game=game):
                         card.visible = True
+                        if card.uncovered_by == None:
+                            card.uncovered_by = request.user
                         card.save()
                 return JsonResponse({'success': int(self.kwargs['pk'])})
 
