@@ -146,4 +146,4 @@ class GameUpdate(LoginRequiredMixin, View):
                 elif game.status == 'new':
                     for card in Cards:
                             card_list.append({'id':card.id, 'word': card.word.word})
-                return JsonResponse({'cards': card_list, 'teams': teams_list})
+                return JsonResponse({'cards': card_list, 'teams': teams_list, 'status':status})
