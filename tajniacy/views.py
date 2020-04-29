@@ -149,7 +149,7 @@ class GameUpdate(LoginRequiredMixin, View):
 
 
 
-                if game.status == 'active':
+                if game.status == 'active' or 'won' in game.status:
                     if Team.objects.filter(game=game, leader=current_user).count() > 0:
                         for card in Cards:
                             card_list.append({'id': card.id, 'word': card.word.word, 'status': card.status, 'visible': card.visible})
