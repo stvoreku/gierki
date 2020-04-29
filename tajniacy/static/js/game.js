@@ -130,8 +130,8 @@ function fillPlayers(teams){
 
 function fillStatus(gamestatus) {
     $("#gamestatus").text(gamestatus.status)
-    $("#team1name").text('red' + gamestatus.red)
-    $('#team2name').text('blue' + gamestatus.blue)
+    $("#team1name").text('red Cards left: ' + gamestatus.red)
+    $('#team2name').text('blue Cards left: ' + gamestatus.blue)
 }
 
 
