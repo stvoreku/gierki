@@ -122,7 +122,7 @@ class GameUpdate(LoginRequiredMixin, View):
                     except:
                         leader = None
                     teams_list[team.name] = {'leader': leader, 'players': players}
-                    status[team.name] = Card.objects.filter(team=team, visible=False).count()
+                    status[team.name] = Card.objects.filter(status=team.name, visible=False).count()
 
 
 
