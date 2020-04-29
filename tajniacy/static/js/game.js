@@ -128,6 +128,12 @@ function fillPlayers(teams){
 
 }
 
+function fillStatus(gamestatus) {
+    $("#gamestatus").text(gamestatus.status)
+    $("#team1name").text('red' + gamestatus.red)
+    $('#team2name').text('blue' + gamestatus.blue)
+}
+
 
 
 
@@ -144,8 +150,10 @@ function game_update(gamenum) {
 
         cards = json['cards']
         teams = json['teams']
+        gamestatus = json['status']
         fillPlayers(teams)
         fillGame(cards);
+        fillStatus(gamestatus)
         },
 
         // handle a non-successful response
