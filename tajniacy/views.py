@@ -90,9 +90,9 @@ class GameView(LoginRequiredMixin, TemplateView):
                 card.save()
                 return JsonResponse({'success': int(self.kwargs['pk'])})
 
-class GameUpdate(View):
-    #TODO list graczy poszczególnych drużyn
-    #TODO refactor na ogólną klasę GameUpdate (uuuu!)
+class GameUpdate(LoginRequiredMixin, View):
+
+
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
 
@@ -102,10 +102,18 @@ class GameUpdate(View):
             if 'game_number' in request.GET:
                 gameid = request.GET.get('game_number')
                 game = Game.objects.get(pk=int(gameid))
-                # Pozyskiwanie listy graczy
+
+                # Pozyskiwanie statusy gry
+
+                status = {'status': game.status}
+
+                # Pozyskiwanie listy graczy i pozostalych kart druzyn oraz wynikow
                 teams = Team.objects.filter(game=game).order_by('id')
                 teams_list = {}
                 for team in teams:
+
+
+
                     players = []
                     for player in team.player.all():
                         players.append(player.username)
@@ -114,9 +122,11 @@ class GameUpdate(View):
                     except:
                         leader = None
                     teams_list[team.name] = {'leader': leader, 'players': players}
+                    status[team.name] = Card.objects.filter(team=team, visible=False).count()
+
+
 
                 # Pozyskiwanie informacji o kartach
-
                 Cards = Card.objects.filter(game = game).order_by('id')
                 card_list = []
                 current_user = request.user #np bryla
