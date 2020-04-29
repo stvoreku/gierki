@@ -92,6 +92,7 @@ class GameView(LoginRequiredMixin, TemplateView):
                     game = card.game
                     team = Team.objects.filter(game=game).exclude(player=request.user)[0]
                     game.status = f"{team.name} won"
+                    game.save()
                     for card in Card.objects.filter(game=game):
                         card.visible = True
                         if card.uncovered_by == None:
@@ -132,8 +133,14 @@ class GameUpdate(LoginRequiredMixin, View):
                         leader = None
                     teams_list[team.name] = {'leader': leader, 'players': players}
                     status[team.name] = Card.objects.filter(status=team.name, visible=False, game=game).count()
-
-
+                    if status[team.name] == 0:
+                        game.status = f'{team.name} won'
+                        game.save()
+                        for card in Card.objects.filter(game=game):
+                            card.visible = True
+                            if card.uncovered_by == None:
+                                card.uncovered_by = request.user
+                            card.save()
 
                 # Pozyskiwanie informacji o kartach
                 Cards = Card.objects.filter(game = game).order_by('id')
