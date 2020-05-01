@@ -1,1 +1,1 @@
-web: gunicorn gierki.wsgi --log-file --workers 1
+web: gunicorn gierki.wsgi --log-file -

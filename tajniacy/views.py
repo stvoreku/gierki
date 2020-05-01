@@ -88,21 +88,11 @@ class GameView(LoginRequiredMixin, TemplateView):
                 card.visible = True;
                 card.uncovered_by = request.user
                 card.save()
-                if card.status == 'death':
-                    game = card.game
-                    team = Team.objects.filter(game=game).exclude(player=request.user)[0]
-                    game.status = f"{team.name} won"
-                    game.save()
-                    for card in Card.objects.filter(game=game):
-                        card.visible = True
-                        if card.uncovered_by == None:
-                            card.uncovered_by = request.user
-                        card.save()
                 return JsonResponse({'success': int(self.kwargs['pk'])})
 
-class GameUpdate(LoginRequiredMixin, View):
-
-
+class GameUpdate(View):
+    #TODO list graczy poszczególnych drużyn
+    #TODO refactor na ogólną klasę GameUpdate (uuuu!)
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
 
@@ -112,18 +102,10 @@ class GameUpdate(LoginRequiredMixin, View):
             if 'game_number' in request.GET:
                 gameid = request.GET.get('game_number')
                 game = Game.objects.get(pk=int(gameid))
-
-                # Pozyskiwanie statusy gry
-
-                status = {'status': game.status}
-
-                # Pozyskiwanie listy graczy i pozostalych kart druzyn oraz wynikow
+                # Pozyskiwanie listy graczy
                 teams = Team.objects.filter(game=game).order_by('id')
                 teams_list = {}
                 for team in teams:
-
-
-
                     players = []
                     for player in team.player.all():
                         players.append(player.username)
@@ -132,24 +114,16 @@ class GameUpdate(LoginRequiredMixin, View):
                     except:
                         leader = None
                     teams_list[team.name] = {'leader': leader, 'players': players}
-                    status[team.name] = Card.objects.filter(status=team.name, visible=False, game=game).count()
-                    if status[team.name] == 0 and game.status == 'active':
-                        game.status = f'{team.name} won'
-                        game.save()
-                        for card in Card.objects.filter(game=game):
-                            card.visible = True
-                            if card.uncovered_by == None:
-                                card.uncovered_by = request.user
-                            card.save()
 
                 # Pozyskiwanie informacji o kartach
+
                 Cards = Card.objects.filter(game = game).order_by('id')
                 card_list = []
                 current_user = request.user #np bryla
 
 
 
-                if game.status == 'active' or 'won' in game.status:
+                if game.status == 'active':
                     if Team.objects.filter(game=game, leader=current_user).count() > 0:
                         for card in Cards:
                             card_list.append({'id': card.id, 'word': card.word.word, 'status': card.status, 'visible': card.visible})
@@ -162,7 +136,4 @@ class GameUpdate(LoginRequiredMixin, View):
                 elif game.status == 'new':
                     for card in Cards:
                             card_list.append({'id':card.id, 'word': card.word.word})
-                return JsonResponse({'cards': card_list, 'teams': teams_list, 'status':status})
-            return JsonResponse({'error':'error'})
-
-#test forced restart
+                return JsonResponse({'cards': card_list, 'teams': teams_list})
