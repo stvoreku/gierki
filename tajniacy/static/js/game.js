@@ -113,10 +113,10 @@ function fillPlayers(teams){
     $("#team1name").text(team1)
     $("#team2name").text(team2)
 
-    $("#team1leader").text("Leader:" +  teams[team1].leader)
-    $("#team2leader").text("Leader:" + teams[team2].leader)
-    $("#team1").clear()
-    $("#team2").clear()
+    $("#team1leader").text("Leader: " +  teams[team1].leader)
+    $("#team2leader").text("Leader: " + teams[team2].leader)
+    $("#team1").empty()
+    $("#team2").empty()
     for (p in teams[team1].players) {
         $("#team1").append('<li>' + teams[team1].players[p] + '</li>')
     }
@@ -126,6 +126,12 @@ function fillPlayers(teams){
     //$("#team1id").appendChild(teams[team1].players)
     //$("#team2id").appendChild(teams[team1].players)
 
+}
+
+function fillStatus(gamestatus) {
+    $("#gamestatus").text(gamestatus.status)
+    $("#team1name").text('red Cards left: ' + gamestatus.red)
+    $('#team2name').text('blue Cards left: ' + gamestatus.blue)
 }
 
 
@@ -144,8 +150,10 @@ function game_update(gamenum) {
 
         cards = json['cards']
         teams = json['teams']
+        gamestatus = json['status']
         fillPlayers(teams)
         fillGame(cards);
+        fillStatus(gamestatus)
         },
 
         // handle a non-successful response
