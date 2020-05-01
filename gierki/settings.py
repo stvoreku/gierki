@@ -140,3 +140,5 @@ STATICFILES_DIRS = (
 )
 
 django_heroku.settings(locals()) #HEROKU
+
+SQLALCHEMY_TRACK_MODIFICATIONS=False
