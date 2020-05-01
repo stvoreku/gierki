@@ -133,7 +133,7 @@ class GameUpdate(LoginRequiredMixin, View):
                         leader = None
                     teams_list[team.name] = {'leader': leader, 'players': players}
                     status[team.name] = Card.objects.filter(status=team.name, visible=False, game=game).count()
-                    if status[team.name] == 0:
+                    if status[team.name] == 0 and 'won' not in game.status:
                         game.status = f'{team.name} won'
                         game.save()
                         for card in Card.objects.filter(game=game):
